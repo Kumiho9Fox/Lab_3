@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тюлячкина Мария</title>
+</head>
+<body>
+    <h1>Вычисление значения функции e<sup>-x</sup></h1>
+    <img src="z5.png" alt="функция">
+    <p>Введите значение x:</p>
+    <input type="text" id="xValue" value="1">
+    <button onclick="calculate()">Вычислить</button>
+    <p id="result"></p>
+    <script>
+        function factorial(n) {
+            let result = 1;
+            for (let i = 2; i <= n; i++) {
+                result *= i;
+            }
+            return result;
+        }
+        function calculate() {
+            const x = parseFloat(document.getElementById('xValue').value);
+            const trueValue = Math.exp(-x);
+            let taylorSeries = 0;
+            let n = 0;
+            let term;
+            do {
+                term = Math.pow(-1, n) * Math.pow(x, n) / factorial(n);
+                taylorSeries += term;
+                n++;
+            } while (Math.abs(term) > 0.000001); // Точность до 6-го знака после запятой
+
+            document.getElementById('result').innerHTML = `Стандартная функция Math: ${trueValue}<br>` +
+                                                         `Ряд Тейлора: ${taylorSeries}<br>`;
+        }
+    </script>
+</body>
+</html>

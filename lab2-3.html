@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тюлячкина Мария</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+        }
+        img {
+            margin-top: 20px;
+        }
+        .developer {
+            margin-top: 20px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <p>Вычисление значения функции <strong>y</strong> в зависимости от <strong>x</strong>.</p>
+    <img src="z3.png" alt="График функции">
+    <p>Введите значение <strong>x</strong>:</p>
+    <input type="number" id="xInput" placeholder="Введите x">
+    <button onclick="calculate()">Вычислить</button>
+    <p id="result"></p>
+    <div class="developer">
+        Разработчик скрипта: Тюлячкина Мария
+    </div>
+    <script>
+        function calculate() {
+            const x = parseFloat(document.getElementById('xInput').value);
+            let y;
+
+            if (x <= 0 && x !== -1) {
+                y = x + Math.exp(2 * x);
+            } else if (x > 0 && x <= Math.PI) {
+                y = Math.cos(x) ** 2;
+            } else {
+                y = x;
+            }
+            document.getElementById('result').textContent = `Значение функции y: ${y}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Тюлячкина Мария</title>
+</head>
+<body>
+    <script>
+        try {
+            var lang = prompt("Введите код языка (ru, en, fr, de):");
+            switch (lang) {
+                case "ru":
+                    alert("Русский");
+                    break;
+                case "en":
+                    alert("Английский");
+                    break;
+                case "fr":
+                    alert("Французский");
+                    break;
+                case "de":
+                    alert("Немецкий");
+                    break;
+                default:
+                    throw new Error("Некорректный код языка");
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    </script>
+</body>
+</html>
